@@ -1,10 +1,12 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   font-family: Arial;
 }
 
 body {
-  background: linear-gradient(rgb(22, 66, 93),rgb(150, 150, 150));
+  background: linear-gradient(rgb(22, 66, 93), rgb(150, 150, 150));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +19,7 @@ body {
   display: grid;
   grid-template-columns: repeat(var(--grid-size), var(--cell-size));
   grid-template-rows: repeat(var(--grid-size), var(--cell-size));
-  background-color: #CCC;
+  background-color: #ccc;
   gap: var(--cell-gap);
   border-radius: 1vmin;
   padding: var(--cell-gap);
@@ -25,7 +27,7 @@ body {
 }
 
 .cell {
-  background-color: #AAA;
+  background-color: #aaa;
   border-radius: 1vmin;
 }
 
@@ -49,7 +51,7 @@ body {
 
 @keyframes show {
   0% {
-    opacity: .5;
+    opacity: 0.5;
     transform: scale(0);
   }
 }
