@@ -1,57 +1,62 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  font-family: Arial;
+    box-sizing: border-box;
+    font-family: Arial;
 }
 
 body {
-  background: linear-gradient(rgb(22, 66, 93), rgb(150, 150, 150));
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  font-size: 7.5vmin;
+    background: linear-gradient(rgb(22, 66, 93), rgb(150, 150, 150));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-size: 7.5vmin;
 }
 
 #game-board {
-  display: grid;
-  grid-template-columns: repeat(var(--grid-size), var(--cell-size));
-  grid-template-rows: repeat(var(--grid-size), var(--cell-size));
-  background-color: #ccc;
-  gap: var(--cell-gap);
-  border-radius: 1vmin;
-  padding: var(--cell-gap);
-  position: relative;
+    display: grid;
+    /* initializing the variables  so that could use anywhere in any function just by passing the argument */
+    grid-template-columns: repeat(var(--grid-size), var(--cell-size)); 
+    grid-template-rows: repeat(var(--grid-size), var(--cell-size));
+    background-color: #ccc;
+    gap: var(--cell-gap);
+    border-radius: 1vmin;
+    padding: var(--cell-gap);
+    position: relative;
 }
 
 .cell {
-  background-color: #aaa;
-  border-radius: 1vmin;
+    background-color: #aaa;
+    border-radius: 1vmin;
 }
 
 .tile {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: var(--cell-size);
-  height: var(--cell-size);
-  background-color: red;
-  border-radius: 1vmin;
-  top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
-  left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
-  font-weight: bold;
-  background-color: hsl(200, 50%, var(--background-lightness));
-  color: hsl(200, 25%, var(--text-lightness));
-  animation: show 200ms ease-in-out;
-  transition: 100ms ease-in-out;
+    /* y means the y coordinate 0-3 */
+    /* x means the x coordinate 0-3 both x,y make the grid complete as 4*4*/
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: red;
+    border-radius: 1vmin;
+    top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+    left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
+    font-weight: bold;
+    background-color: hsl(200, 50%, var(--background-lightness));
+    /* as we move on with the number background gets more darker  */
+    color: hsl(200, 25%, var(--text-lightness));
+    /* when the new tile gets inserted animation happens ease in and out */
+    animation: show 200ms ease-in-out;
+    transition: 100ms ease-in-out;
 }
 
 @keyframes show {
-  0% {
-    opacity: 0.5;
-    transform: scale(0);
-  }
+    0% {
+        opacity: 0.5;
+        transform: scale(0);
+    }
 }
